@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Développer votre image de marque sans site internet : les limites que personne ne vous dit | Gold Aura</title>
+<meta name="description" content="Vous êtes sur Planity, Salonkee ou Instagram ? Découvrez pourquoi ces outils ne suffisent pas à développer une vraie image de marque pour votre salon ou institut de beauté — et ce que cela vous coûte vraiment.">
+<meta name="keywords" content="image de marque esthéticienne, site internet salon de beauté, développer sa clientèle institut, réservation en ligne coiffeur, image de marque coiffeur">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --dark: #1A1410;
+    --charcoal: #2D2520;
+    --warm-white: #FAF8F4;
+    --muted: #7A7065;
+    --accent-red: #C0392B;
+    --accent-green: #1E7A4E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--dark);
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* HEADER */
+  .article-header {
+    background: var(--dark);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  }
+  .article-header .eyebrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.35);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .article-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--warm-white);
+    line-height: 1.18;
+    max-width: 820px;
+    margin: 0 auto 22px;
+  }
+  .article-header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .article-header .subtitle {
+    color: rgba(250,248,244,0.6);
+    font-size: 15px;
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  .meta-bar {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 36px;
+    font-size: 12px;
+    color: rgba(250,248,244,0.4);
+    letter-spacing: 0.06em;
+  }
+
+  /* LAYOUT */
+  .article-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* INTRO */
+  .intro-block {
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    background: rgba(201,168,76,0.06);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 64px;
+  }
+  .intro-block p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--charcoal);
+  }
+  .intro-block strong { color: var(--dark); font-weight: 500; }
+
+  /* HEADINGS */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.25;
+    margin: 64px 0 20px;
+  }
+  h2 .num {
+    display: inline-block;
+    font-size: 0.75em;
+    color: var(--gold);
+    margin-right: 6px;
+    font-weight: 400;
+  }
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 36px 0 10px;
+  }
+  p { margin-bottom: 22px; color: var(--charcoal); }
+  p:last-child { margin-bottom: 0; }
+
+  /* QUOTE */
+  blockquote {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: var(--dark);
+    border-radius: 4px;
+    position: relative;
+  }
+  blockquote::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    position: absolute;
+    top: -10px;
+    left: 22px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  blockquote p {
+    color: var(--warm-white);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    padding-left: 16px;
+    margin: 0;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    padding-left: 16px;
+    font-style: normal;
+  }
+
+  /* BULLET POINTS */
+  .bullet-list {
+    list-style: none;
+    margin: 24px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    font-size: 15.5px;
+    color: var(--charcoal);
+    border-left: 3px solid var(--gold-light);
+  }
+  .bullet-list li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* NUMBERED SECTIONS */
+  .method-card {
+    background: white;
+    border-radius: 8px;
+    padding: 32px 36px;
+    margin: 32px 0;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border-top: 3px solid var(--gold);
+    position: relative;
+  }
+  .method-card .card-num {
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .method-card h3 { margin-top: 8px; }
+  .method-card .limit-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(192,57,43,0.08);
+    border: 1px solid rgba(192,57,43,0.2);
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--accent-red);
+    margin-top: 16px;
+    font-weight: 400;
+  }
+  .method-card .limit-tag::before { content: '⚠'; }
+
+  /* TABLE */
+  .comparison-wrap {
+    margin: 48px 0;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    min-width: 600px;
+  }
+  thead tr {
+    background: var(--dark);
+  }
+  thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-size: 13px;
+  }
+  thead th:first-child { color: var(--gold-light); }
+  thead th:not(:first-child) { color: var(--warm-white); }
+  thead th:last-child { background: rgba(201,168,76,0.15); color: var(--gold); }
+
+  tbody tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
+  tbody tr:nth-child(even) { background: rgba(201,168,76,0.03); }
+  tbody td {
+    padding: 14px 20px;
+    vertical-align: top;
+    color: var(--charcoal);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  tbody td:first-child {
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 13.5px;
+  }
+  .cell-bad { color: var(--accent-red); }
+  .cell-mid { color: #E07B00; }
+  .cell-good { color: var(--accent-green); font-weight: 500; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--dark) 0%, #2A2018 100%);
+    border-radius: 8px;
+    padding: 40px 44px;
+    margin: 48px 0;
+    color: var(--warm-white);
+  }
+  .highlight-box h2 { color: var(--gold); margin-top: 0; }
+  .highlight-box p { color: rgba(250,248,244,0.82); }
+  .highlight-box .bullet-list li {
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--gold);
+    color: rgba(250,248,244,0.85);
+  }
+
+  /* LOSS SECTION */
+  .loss-section {
+    background: white;
+    border-radius: 8px;
+    padding: 40px 44px;
+    margin: 48px 0;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .loss-item {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    align-items: flex-start;
+  }
+  .loss-item:last-child { border-bottom: none; }
+  .loss-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(192,57,43,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .loss-content h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .loss-content p { font-size: 14px; margin: 0; }
+
+  /* IMAGE PLACEHOLDER */
+  .img-placeholder {
+    background: rgba(201,168,76,0.06);
+    border: 1px dashed rgba(201,168,76,0.4);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .img-placeholder::before { content: '📷'; font-style: normal; font-size: 18px; }
+
+  /* LINK BOX */
+  .resource-box {
+    background: white;
+    border-radius: 6px;
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 18px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .resource-box strong { color: var(--dark); display: block; margin-bottom: 6px; }
+  .resource-box a { color: var(--gold); text-decoration: none; }
+  .resource-box a:hover { text-decoration: underline; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--gold);
+    border-radius: 8px;
+    padding: 48px 44px;
+    margin: 64px 0;
+    text-align: center;
+  }
+  .cta-section h2 {
+    color: var(--dark);
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  .cta-section p { color: rgba(26,20,16,0.75); }
+  .cta-btn {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--gold);
+    padding: 16px 40px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 24px;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: var(--charcoal); }
+
+  /* FAQ */
+  .faq-section { margin: 64px 0; }
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 24px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .faq-a { font-size: 15px; color: var(--muted); }
+
+  /* GOLD AURA SECTION */
+  .about-section {
+    background: var(--dark);
+    border-radius: 8px;
+    padding: 48px 44px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-section::after {
+    content: 'GOLD AURA';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.07);
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    pointer-events: none;
+  }
+  .about-section .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .about-section .logo-badge span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .about-section h2 { color: var(--warm-white); margin-top: 0; font-size: 1.8rem; }
+  .about-section p { color: rgba(250,248,244,0.65); font-size: 15px; }
+  .about-placeholder {
+    border: 1px dashed rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(201,168,76,0.5);
+    font-style: italic;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+    opacity: 0.3;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--dark);
+  }
+  .divider span { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .method-card, .highlight-box, .loss-section, .cta-section, .about-section { padding: 28px 24px; }
+    .intro-block { padding: 20px 22px; }
+    thead th, tbody td { padding: 12px 14px; }
+  }
+
+  /* PRINT-CLEAN SCHEMA HINTS (for SEO crawlers) */
+  .schema-hint { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Schema.org Article (invisible, for SEO/GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Développer votre image de marque sans site internet : les limites que personne ne vous dit",
+  "author": { "@type": "Organization", "name": "Gold Aura" },
+  "publisher": { "@type": "Organization", "name": "Gold Aura", "url": "https://goldaura.ch" },
+  "description": "Vous êtes sur Planity, Salonkee ou Instagram ? Découvrez pourquoi ces outils ne suffisent pas à développer une vraie image de marque pour votre salon ou institut de beauté.",
+  "inLanguage": "fr",
+  "datePublished": "2026-03-27",
+  "mainEntityOfPage": { "@type": "WebPage" }
+}
+</script>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <div class="eyebrow">Gold Aura — Blog &amp; Ressources</div>
+  <h1>Développer votre image de marque sans site internet : <em>les limites que personne ne vous dit</em></h1>
+  <p class="subtitle">Salonkee, Planity, Instagram… Et si vous construisiez votre salon sur du sable ?</p>
+  <div class="meta-bar">
+    <span>27 mars 2026</span>
+    <span>·</span>
+    <span>Lecture : ~10 min</span>
+    <span>·</span>
+    <span>Image de marque · SEO · Beauté</span>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="article-body" itemscope itemtype="https://schema.org/Article">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>Vous avez un compte sur Planity, une belle page Instagram, peut-être même une fiche Google bien remplie. Votre agenda est actif, vos clientes reviennent. Tout va bien — en apparence. Mais voici la question que très peu de professionnels de la beauté se posent vraiment : <strong>est-ce que vous possédez réellement votre image de marque ?</strong> Dans cet article, on va explorer honnêtement les meilleurs moyens de développer votre image de marque sans site internet, tout en vous montrant pourquoi, à un moment donné, ces solutions atteignent toutes la même limite.</p>
+  </div>
+
+  <!-- PHOTO SUGGESTION 1 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Vue aérienne d'un salon de beauté soigné — comptoir d'accueil épuré, lumières chaudes, produits esthétiques disposés avec soin. Ambiance premium, neutre ou dorée. Illustre le concept d'identité visuelle forte dès l'entrée de l'article.
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2>Le problème invisible des plateformes de réservation</h2>
+
+  <p>Salonkee, Planity, Treatwell ou Fresha sont des outils puissants. Personne ne le nie. Ils simplifient la gestion des rendez-vous, réduisent les no-shows et donnent une visibilité immédiate. Mais il y a une différence fondamentale entre <strong>être visible sur une plateforme</strong> et <strong>avoir une image de marque qui vous appartient</strong>. Cette distinction est au cœur de toute stratégie de communication durable.</p>
+
+  <p>Imaginez que vous ouvrez une boutique dans un grand centre commercial. Vous avez du passage, des clients, du chiffre d'affaires. Mais le local ne vous appartient pas, les règles changent sans vous consulter, et votre voisin direct propose exactement la même prestation à deux euros de moins. Vous dépendez entièrement des conditions d'un tiers. C'est une situation précaire, même lorsque le chiffre d'affaires semble stable.</p>
+
+  <p>C'est exactement ce qui se passe sur les plateformes de réservation. Et la plupart des professionnelles de la beauté ne le réalisent qu'au moment où quelque chose change — une mise à jour des conditions, une hausse des commissions, ou une panne de système un samedi matin chargé.</p>
+
+  <ul class="bullet-list">
+    <li>Votre profil ressemble à celui de cent autres salons dans votre ville : même mise en page, mêmes photos de couverture proposées par défaut, même structure.</li>
+    <li>Vous n'avez aucun contrôle sur les avis négatifs mis en avant, ni sur la manière dont votre salon est positionné dans les résultats de la plateforme.</li>
+    <li>Si la plateforme augmente ses commissions ou décide de vous déréférencer, vous perdez ce canal du jour au lendemain.</li>
+    <li>Les données de vos clientes vous appartiennent à moitié — elles appartiennent surtout à la plateforme.</li>
+    <li>Votre capacité à communiquer vos valeurs, votre univers et votre personnalité reste très limitée dans un gabarit imposé.</li>
+  </ul>
+
+  <blockquote>
+    <p>Louer sa visibilité ne remplace pas posséder sa marque. L'une coûte chaque mois. L'autre se construit une fois, pour longtemps.</p>
+    <cite>— Principes fondamentaux du branding digital, 2024</cite>
+  </blockquote>
+
+  <p>Ce n'est pas un jugement sur ces outils — c'est une réalité de marché. <a href="https://www.planity.com" rel="nofollow noopener" target="_blank">Planity</a> ou <a href="https://www.salonkee.fr" rel="nofollow noopener" target="_blank">Salonkee</a> ont été conçus pour optimiser les réservations, pas pour construire des marques. Les utiliser intelligemment, c'est comprendre ce qu'ils font — et ce qu'ils ne feront jamais pour vous.</p>
+
+  <!-- SECTION 2 -->
+  <h2>Pourquoi vous n'avez pas réellement de marque aujourd'hui</h2>
+
+  <p>Avoir une marque forte, c'est bien plus que d'avoir un logo et une couleur signature. C'est l'ensemble des perceptions que vos clientes ont de vous, avant même d'avoir pris rendez-vous. Cette perception se forme au travers de chaque point de contact — un post Instagram, une fiche Google, une recommandation d'amie, ou le moment où elles atterrissent sur votre page de réservation. Votre identité visuelle, votre ton, votre message : tout cela forme une image cohérente… ou pas.</p>
+
+  <p>Voici les signaux qui indiquent qu'une image de marque esthéticienne n'est pas encore pleinement construite :</p>
+
+  <ul class="bullet-list">
+    <li>Vos nouvelles clientes vous trouvent uniquement via la plateforme — pas via votre nom propre.</li>
+    <li>Vous ne maîtrisez pas l'expérience de la première impression en ligne : c'est Planity ou Salonkee qui la contrôle.</li>
+    <li>Votre discours, vos valeurs, votre univers esthétique sont difficilement perceptibles dans vos profils de réservation.</li>
+    <li>Si une cliente veut vous recommander, elle ne sait pas trop où envoyer ses amies — pas de lien simple, pas d'identité claire.</li>
+    <li>Vous êtes comparée en temps réel à vos concurrentes, souvent sur le seul critère du prix.</li>
+    <li>Votre storytelling — ce qui rend votre parcours unique — ne transparaît nulle part dans votre présence numérique actuelle.</li>
+  </ul>
+
+  <p>Ce n'est pas une critique de votre travail — c'est une réalité structurelle. Ces plateformes ont été conçues pour vendre des réservations, pas pour construire des marques. La bonne nouvelle, c'est qu'une fois que vous comprenez cette limite, vous pouvez commencer à construire quelque chose qui vous appartient vraiment.</p>
+
+  <!-- PHOTO SUGGESTION 2 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Comparaison côte à côte — à gauche, une capture d'écran floue d'un profil générique sur une plateforme de réservation ; à droite, un beau site web personnalisé d'un institut. Illustre visuellement la différence d'image de marque. (Créez un visuel en interne ou utilisez une illustration stylisée.)
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- SECTION 3 : LES 5 MÉTHODES -->
+  <h2>Les 5 meilleurs moyens de développer votre image de marque sans site internet</h2>
+
+  <p>Voici les stratégies qui fonctionnent réellement — et les limites que chacune finit par atteindre. L'objectif est de vous donner une vision claire et honnête, pas de vous vendre du rêve. Ces leviers sont efficaces dans un premier temps, et ils doivent absolument faire partie de votre plan de communication global. Mais aucun ne peut, seul, créer une image de marque cohérente et durable.</p>
+
+  <!-- MÉTHODE 1 -->
+  <div class="method-card">
+    <div class="card-num">1</div>
+    <h3>Instagram et TikTok : construire une vitrine visuelle forte</h3>
+    <p>Les réseaux sociaux restent le terrain le plus efficace pour montrer votre travail, créer une communauté et établir un univers visuel cohérent. Un feed soigné, des reels réguliers et une ligne éditoriale claire peuvent faire de vous une référence locale — voire nationale. La cohérence de vos visuels, la récurrence de vos publications et l'authenticité de votre ton sont des éléments essentiels pour inspirer confiance à votre audience.</p>
+    <p>C'est aussi là que votre personnalité professionnelle peut pleinement s'exprimer : votre touche, vos techniques, votre ambiance de salon. L'image de marque coiffeur ou esthéticienne se construit beaucoup ici aujourd'hui. Des outils comme <a href="https://www.canva.com/fr_fr/" rel="nofollow noopener" target="_blank">Canva</a> permettent de créer facilement des visuels de qualité, même sans graphiste. Pour aller plus loin dans la stratégie de contenu, des ressources comme le blog de <a href="https://later.com/blog/" rel="nofollow noopener" target="_blank">Later</a> offrent des conseils pratiques sur la publication sur les réseaux sociaux.</p>
+    <div class="limit-tag">Limite : vous construisez sur une plateforme qui ne vous appartient pas. Une panne, un changement d'algorithme ou une suppression de compte, et des années de contenu disparaissent. Vous ne possédez ni votre audience, ni vos données.</div>
+  </div>
+
+  <!-- MÉTHODE 2 -->
+  <div class="method-card">
+    <div class="card-num">2</div>
+    <h3>Google My Business : la crédibilité locale par excellence</h3>
+    <p>Une fiche Google bien optimisée est un levier sous-estimé. Horaires, photos, avis clients, posts réguliers, questions/réponses : une fiche complète inspire confiance et positionne votre salon dans les recherches locales. Pour développer sa clientèle institut dans une zone géographique précise, c'est incontournable. La satisfaction de vos clientes, reflétée dans vos avis, est souvent le premier critère qu'une nouvelle cliente regarde avant de prendre rendez-vous.</p>
+    <p>Genevoise, lyonnaise ou parisienne — une cliente qui cherche "institut de beauté près de moi" passera par Google. Être bien référencé là change tout. Pensez à répondre à chaque avis, positif comme négatif : cela montre votre professionnalisme et renforce votre image de marque aux yeux des clientes potentielles. La <a href="https://support.google.com/business/" rel="nofollow noopener" target="_blank">documentation officielle de Google Business</a> détaille toutes les bonnes pratiques pour optimiser votre fiche.</p>
+    <div class="limit-tag">Limite : Google My Business ne remplace pas un site. Sans page de destination propre, vous ne pouvez pas raconter votre histoire, vendre vos forfaits en détail ni capturer des leads. Vous restez dépendante de Google.</div>
+  </div>
+
+  <!-- MÉTHODE 3 -->
+  <div class="method-card">
+    <div class="card-num">3</div>
+    <h3>L'email marketing et la newsletter : fidéliser sans dépendre des algorithmes</h3>
+    <p>La liste email est l'un des rares actifs numériques qui vous appartient vraiment — du moins partiellement. Une newsletter mensuelle avec des conseils beauté, des offres exclusives et des nouveautés crée un lien direct et personnalisé avec vos clientes. C'est un outil puissant pour la fidélisation et la réservation en ligne coiffeur ou institut. Des outils comme <a href="https://mailchimp.com/fr/" rel="nofollow noopener" target="_blank">Mailchimp</a> ou <a href="https://www.brevo.com/fr/" rel="nofollow noopener" target="_blank">Brevo (ex-Sendinblue)</a> permettent de démarrer gratuitement avec une interface simple. Une communication régulière, même bimestrielle, renforce considérablement la fidélité de vos clientes existantes.</p>
+    <div class="limit-tag">Limite : pour collecter des emails légalement et efficacement, il vous faut un formulaire, une page d'opt-in et une politique de confidentialité. Tout cela nécessite… un site internet. Sans lui, la collecte reste artisanale et limitée.</div>
+  </div>
+
+  <!-- MÉTHODE 4 -->
+  <div class="method-card">
+    <div class="card-num">4</div>
+    <h3>Les avis clients et le bouche-à-oreille digital</h3>
+    <p>Les avis Google, les recommandations sur les réseaux, les stories de clientes satisfaites : ce contenu généré par d'autres est souvent plus persuasif que n'importe quelle publicité. Encourager activement vos clientes à laisser des avis et à vous tagger est une stratégie d'image de marque esthéticienne à part entière. La perception que vos clientes ont de vous — et ce qu'elles en disent autour d'elles — est l'un des leviers les plus puissants pour développer votre réputation locale.</p>
+    <p>Pensez à mettre en place un petit rituel en fin de prestation : un mot chaleureux, un QR code vers votre fiche Google, un remerciement sincère. Ces gestes simples augmentent significativement le taux de retour des avis. Pour aller plus loin dans la gestion de votre e-réputation, la plateforme <a href="https://www.trustpilot.com/business" rel="nofollow noopener" target="_blank">Trustpilot Business</a> propose des ressources utiles sur la collecte et la gestion des avis en ligne.</p>
+    <div class="limit-tag">Limite : vous ne maîtrisez pas ce que les gens disent, ni où ils le disent. Et si une cliente cherche à en savoir plus sur vous après un avis positif, elle tombera peut-être sur le profil de votre concurrente avant de trouver le vôtre.</div>
+  </div>
+
+  <!-- MÉTHODE 5 -->
+  <div class="method-card">
+    <div class="card-num">5</div>
+    <h3>Les collaborations et partenariats locaux</h3>
+    <p>S'associer à d'autres professionnels pour des événements, des offres croisées ou des contenus communs est une stratégie de branding puissante et souvent négligée. Cela renforce votre ancrage local et votre image de marque coiffeur ou esthéticienne de manière très naturelle. Voici quelques exemples de partenaires particulièrement pertinents dans l'univers de la beauté et du bien-être :</p>
+
+    <ul class="bullet-list">
+      <li><strong>Photographes de portraits ou de mariage</strong> — ils recommandent souvent un institut pour la préparation beauté de leurs clientes.</li>
+      <li><strong>Boutiques de vêtements et accessoires mode</strong> — des clientes communes, une vision esthétique partagée.</li>
+      <li><strong>Salles de sport, studios yoga ou pilates</strong> — le bien-être corporel complète naturellement les soins beauté.</li>
+      <li><strong>Spas et centres de thalassothérapie</strong> — complémentaires sans être directement concurrents selon les spécialités proposées.</li>
+      <li><strong>Parfumeries et boutiques de cosmétiques naturels</strong> — des marques comme <a href="https://www.aroma-zone.com" rel="nofollow noopener" target="_blank">Aroma-Zone</a> ou des revendeurs de marques bio locales peuvent être d'excellents partenaires d'échange de visibilité.</li>
+      <li><strong>Fleuristes et décoratrices d'intérieur</strong> — pour des événements, des shootings ou des offres cadeau communes autour des occasions spéciales.</li>
+    </ul>
+
+    <p>Ces collaborations permettent aussi d'obtenir des liens entrants naturels vers votre futur site — un atout SEO précieux. Pour trouver des partenaires locaux dans votre secteur, des réseaux comme <a href="https://www.bni.fr" rel="nofollow noopener" target="_blank">BNI France</a> (réseau de networking professionnel) ou les chambres de commerce locales peuvent être de bons points de départ.</p>
+    <div class="limit-tag">Limite : ces collaborations ont besoin d'un point de centralisation — une page qui présente qui vous êtes, ce que vous faites, et où vos partenaires peuvent vous envoyer. Sans site internet salon de beauté, vous n'avez nulle part où atterrir.</div>
+  </div>
+
+  <!-- PHOTO SUGGESTION 3 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Deux professionnelles (esthéticienne et photographe, ou esthéticienne et boutique mode) en train d'échanger ou de collaborer dans un cadre élégant. Illustre le concept de partenariat local et de réseau. Photo lumineuse, ambiance bienveillante et professionnelle.
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- TABLEAU COMPARATIF -->
+  <h2>Tableau comparatif : qui possède vraiment quoi ?</h2>
+
+  <p>Pour clarifier les choses, voici un comparatif direct entre les trois piliers que beaucoup de professionnelles de la beauté utilisent aujourd'hui. Ce tableau est conçu pour vous aider à prendre des décisions éclairées sur la manière dont vous allouez votre temps et votre énergie dans votre stratégie de communication.</p>
+
+  <div class="comparison-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Critère</th>
+          <th>Plateformes de réservation</th>
+          <th>Réseaux sociaux</th>
+          <th>Site internet propre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Propriété des données</td>
+          <td class="cell-bad">❌ Partagée avec la plateforme</td>
+          <td class="cell-bad">❌ Propriété du réseau</td>
+          <td class="cell-good">✅ 100% à vous</td>
+        </tr>
+        <tr>
+          <td>Image de marque</td>
+          <td class="cell-bad">❌ Standardisée, non différenciante</td>
+          <td class="cell-mid">⚠ Partielle, dépend de l'algorithme</td>
+          <td class="cell-good">✅ Totalement personnalisable</td>
+        </tr>
+        <tr>
+          <td>Différenciation</td>
+          <td class="cell-bad">❌ Comparaison directe avec concurrentes</td>
+          <td class="cell-mid">⚠ Possible mais volatile</td>
+          <td class="cell-good">✅ Univers unique, storytelling complet</td>
+        </tr>
+        <tr>
+          <td>Fidélisation</td>
+          <td class="cell-mid">⚠ Via avis et rappels automatiques</td>
+          <td class="cell-mid">⚠ Via communauté, sans garantie</td>
+          <td class="cell-good">✅ Email, blog, espace client</td>
+        </tr>
+        <tr>
+          <td>Liberté marketing</td>
+          <td class="cell-bad">❌ Limitée aux options de la plateforme</td>
+          <td class="cell-mid">⚠ Soumise aux règles du réseau</td>
+          <td class="cell-good">✅ Totale : SEO, pub, landing pages…</td>
+        </tr>
+        <tr>
+          <td>Visibilité IA (ChatGPT, Perplexity…)</td>
+          <td class="cell-bad">❌ Inexistante</td>
+          <td class="cell-bad">❌ Très limitée</td>
+          <td class="cell-good">✅ Possible avec contenu structuré</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PHOTO SUGGESTION 4 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Esthéticienne concentrée sur son travail — soin du visage en cours, lumière douce et professionnelle, ambiance premium. Montre le savoir-faire qui mérite une vraie présentation en ligne. Idéale placée avant ou après le tableau comparatif pour humaniser le propos.
+  </div>
+
+  <!-- SECTION SITE INTERNET -->
+  <div class="highlight-box">
+    <h2>Pourquoi un site internet change tout en 2026</h2>
+    <p>Nous sommes à un tournant. Les intelligences artificielles comme ChatGPT, Gemini et Perplexity répondent désormais directement aux questions des internautes. Quand une future cliente tape "meilleur institut de beauté à Genève" ou "esthéticienne spécialisée en soin visage", les IA cherchent des sites avec du contenu structuré, des informations précises, une autorité construite dans le temps. C'est ce qu'on appelle le GEO — Generative Engine Optimization — et c'est le nouveau terrain de jeu du référencement.</p>
+    <p>Une fiche Planity n'a aucune chance d'être citée par une IA. Un site internet bien construit, oui. Et cette différence va continuer à se creuser dans les prochaines années, à mesure que les IA prendront une place toujours plus grande dans les habitudes de recherche.</p>
+    <ul class="bullet-list">
+      <li>Votre site parle 24h/24 pour vous, même quand vous êtes en cabine.</li>
+      <li>Il capte des clientes en dehors de votre zone géographique immédiate — touristes, nouveaux arrivants à Genève, clientes venues pour un événement.</li>
+      <li>Il crédibilise instantanément votre tarification premium : difficile de justifier 180 CHF pour un soin si votre présence en ligne ressemble à celle d'un salon à 60 CHF.</li>
+      <li>Il devient votre meilleur commercial : pages de vente, témoignages vidéo, avant/après, carte cadeau en ligne.</li>
+      <li>Il vous protège : si Planity ferme demain, votre clientèle sait où vous trouver.</li>
+    </ul>
+  </div>
+
+  <!-- RESSOURCES COMPLÉMENTAIRES -->
+  <h2>Ressources et outils pour aller plus loin</h2>
+
+  <p>Construire une image de marque cohérente nécessite de bons outils et de bonnes sources d'inspiration. Voici une sélection de ressources utiles pour vous accompagner dans cette démarche, selon différents aspects de votre stratégie de communication.</p>
+
+  <p>Pour votre identité visuelle et votre charte graphique, des plateformes comme <a href="https://www.behance.net" rel="nofollow noopener" target="_blank">Behance</a> regorgent d'inspirations pour les marques dans l'univers beauté et lifestyle. <a href="https://fr.pinterest.com" rel="nofollow noopener" target="_blank">Pinterest</a> reste un outil de référence pour créer des moodboards et définir votre univers graphique avant même de parler à un designer.</p>
+
+  <p>Pour comprendre les fondamentaux du branding, le livre <em>Building a StoryBrand</em> de Donald Miller (disponible sur <a href="https://www.amazon.fr" rel="nofollow noopener" target="_blank">Amazon France</a>) est une référence accessible qui s'applique très bien aux petites entreprises de services. En français, le blog de <a href="https://www.webmarketing-com.com" rel="nofollow noopener" target="_blank">Webmarketing & co'm</a> publie régulièrement des guides pratiques sur le marketing digital pour les TPE et PME.</p>
+
+  <p>Pour la photographie professionnelle de votre salon — indispensable pour un site qui inspire confiance — des plateformes comme <a href="https://www.malt.fr" rel="nofollow noopener" target="_blank">Malt</a> permettent de trouver des photographes freelance qualifiés dans votre région, avec des tarifs adaptés aux professionnelles indépendantes. Les banques d'images comme <a href="https://www.unsplash.com" rel="nofollow noopener" target="_blank">Unsplash</a> ou <a href="https://www.pexels.com/fr-fr/" rel="nofollow noopener" target="_blank">Pexels</a> offrent des photos gratuites de qualité pour compléter vos propres prises de vue.</p>
+
+  <p>Enfin, pour suivre les tendances du secteur beauté et anticiper les attentes de vos clientes, des médias spécialisés comme <a href="https://www.weleda.fr/blog" rel="nofollow noopener" target="_blank">le blog de Weleda</a> (cosmétiques naturels) ou <a href="https://www.l-oreal.fr/groupe/our-activities/la-beaute-responsable" rel="nofollow noopener" target="_blank">L'Oréal Groupe</a> publient des études et tendances du marché beauté accessible à tous.</p>
+
+  <!-- PHOTO SUGGESTION 5 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Flatlay élégant — carnet de notes ouvert, téléphone avec dashboard Instagram, palette de couleurs dorée et blanche, moodboard épinglé. Illustre la démarche de création d'une identité visuelle. Style éditorial, lumière naturelle.
+  </div>
+
+  <!-- SECTION PERTES -->
+  <h2>Ce que vous perdez chaque jour sans site internet</h2>
+
+  <p>Le coût d'une absence en ligne ne se voit pas sur une facture. Il se traduit en opportunités manquées, en clientes qui ont choisi quelqu'un d'autre, en réputation qui plafonne. Chaque jour sans site internet représente des clientes potentielles qui ont cherché vos services, trouvé une concurrente mieux référencée, et ne reviendront jamais vers vous — tout simplement parce qu'elles ne vous ont pas trouvée au bon moment.</p>
+
+  <div class="loss-section">
+    <div class="loss-item">
+      <div class="loss-icon">🎯</div>
+      <div class="loss-content">
+        <h4>Des clientes qualifiées qui partent chez la concurrente</h4>
+        <p>Une cliente qui cherche activement un "institut de beauté spécialisé en épilation définitive à Genève" est prête à réserver. Sans site, vous n'existez pas pour elle — et quelqu'un d'autre prend ce rendez-vous.</p>
+      </div>
+    </div>
+    <div class="loss-item">
+      <div class="loss-icon">💬</div>
+      <div class="loss-content">
+        <h4>La confiance que donne une vraie présence professionnelle</h4>
+        <p>Un site bien fait envoie un signal clair : vous êtes sérieuse, installée, professionnelle. Sans lui, même votre meilleur travail sur Instagram reste fragile aux yeux des nouvelles clientes. La perception de votre marque de votre entreprise est directement influencée par la qualité de votre présence numérique.</p>
+      </div>
+    </div>
+    <div class="loss-item">
+      <div class="loss-icon">📈</div>
+      <div class="loss-content">
+        <h4>Un levier de croissance qui travaille à votre place</h4>
+        <p>Le SEO est un investissement long terme. Chaque article de blog que vous publiez, chaque page de soin optimisée attire du trafic pendant des mois, voire des années. Vous ne pouvez pas construire ça sur Salonkee. C'est un point de départ que beaucoup négligent, et qui crée pourtant un avantage concurrentiel considérable sur le long terme.</p>
+      </div>
+    </div>
+    <div class="loss-item">
+      <div class="loss-icon">🤖</div>
+      <div class="loss-content">
+        <h4>La visibilité dans les réponses des IA</h4>
+        <p>En 2026, une part croissante des recherches passe par les IA génératives. Ces systèmes citent des sites, pas des profils de plateformes. Rester invisible dans ce canal, c'est rater l'avenir du référencement. <a href="https://moz.com/beginners-guide-to-seo" rel="nofollow noopener" target="_blank">Le guide débutant de Moz sur le SEO</a> est une excellente introduction pour comprendre les enjeux de référencement naturel.</p>
+      </div>
+    </div>
+    <div class="loss-item">
+      <div class="loss-icon">🛍️</div>
+      <div class="loss-content">
+        <h4>Des revenus complémentaires inexploités</h4>
+        <p>Un site internet peut devenir une boutique en ligne : vente de soins à emporter, de cartes cadeaux, de produits cosmétiques sélectionnés avec soin. Sans site, ces revenus passifs n'existent tout simplement pas. C'est un potentiel souvent sous-estimé, mais qui peut représenter une part significative du chiffre d'affaires d'un institut bien positionné.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTO SUGGESTION 6 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Esthéticienne souriante regardant son téléphone avec satisfaction — symbolisant une réservation reçue en ligne ou un avis positif. Lumière naturelle, ambiance professionnelle détendue. Illustre le bénéfice concret d'une bonne présence numérique.
+  </div>
+
+  <!-- TÉMOIGNAGE SECTION -->
+  <h2>Ce que disent les professionnelles qui ont franchi le pas</h2>
+
+  <p>Bien qu'il soit difficile de citer des témoignages nominatifs sans autorisation explicite, les retours que nous recueillons auprès des professionnelles de beauté qui ont créé leur site internet sont convergents. Le changement le plus souvent mentionné n'est pas uniquement le nombre de nouvelles clientes — c'est la qualité de ces clientes. Celles qui arrivent via un site bien construit ont lu votre histoire, découvert vos valeurs, consulté vos tarifs. Elles arrivent déjà convaincues. Elles questionnent moins le prix parce qu'elles comprennent la valeur.</p>
+
+  <blockquote>
+    <p>Une coiffeuse indépendante à Lyon nous confiait récemment : "Avant mon site, je passais beaucoup de temps à expliquer ce qui me différencie. Maintenant, les clientes arrivent en connaissant déjà mon univers. C'est comme si le site avait fait ma place."</p>
+    <cite>— Retour client, Gold Aura 2025</cite>
+  </blockquote>
+
+  <p>Ce phénomène est documenté dans la littérature marketing sous le terme de "pre-qualification" — votre site filtre naturellement les clientes qui vous correspondent vraiment, et attire celles qui sont prêtes à investir dans une expérience beauté à la hauteur de ce que vous proposez. C'est une différence considérable dans la qualité de votre quotidien professionnel.</p>
+
+  <!-- PHOTO SUGGESTION 7 -->
+  <div class="img-placeholder">
+    <strong>Idée photo :</strong> Duo esthéticienne-cliente en pleine consultation, toutes deux engagées et souriantes. Ambiance chaleureuse et professionnelle. Illustre la qualité de la relation client que permet une marque bien définie — clientes qui se reconnaissent dans vos valeurs.
+  </div>
+
+  <!-- CONCLUSION + CTA -->
+  <div class="cta-section">
+    <h2>La vraie question n'est pas "si" — c'est "quand"</h2>
+    <p>Les plateformes de réservation sont des outils utiles. Les réseaux sociaux sont indispensables. Mais aucun de ces canaux ne vous appartient, et aucun ne peut, seul, porter une image de marque esthéticienne durable et différenciante.</p>
+    <p>La seule vraie fondation de votre présence en ligne — celle sur laquelle tout le reste peut s'appuyer — c'est votre propre site internet. Pas une page parmi d'autres. <strong>Votre espace, vos règles, votre marque.</strong></p>
+    <a href="#gold-aura" class="cta-btn">Découvrir Gold Aura →</a>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- FAQ -->
+  <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Un site internet est-il vraiment utile pour un institut de beauté ou un salon de coiffure ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Oui, de manière décisive. Un site internet salon de beauté permet de contrôler entièrement votre image, d'être trouvée sur Google pour des recherches qualifiées, de proposer une expérience cohérente et premium à vos clientes — et d'être référencée par les intelligences artificielles. C'est le seul outil numérique que vous possédez vraiment. Des études menées par <a href="https://www.thinkwithgoogle.com" rel="nofollow noopener" target="_blank">Think with Google</a> montrent que plus de 70% des consommateurs consultent en ligne avant de visiter un commerce ou de réserver un service local.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Peut-on réussir commercialement avec seulement Salonkee ou Planity ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Vous pouvez avoir un agenda plein avec uniquement une plateforme de réservation — mais vous ne construisez pas une marque forte et durable. Votre visibilité dépend des règles de la plateforme, votre image est standardisée, et si la plateforme change ses conditions, vous partez de zéro. C'est un risque réel pour une activité que vous avez construite avec soin.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Instagram suffit-il à développer une image de marque esthéticienne professionnelle ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Instagram est un excellent outil pour montrer votre travail et créer une communauté. Mais il ne remplace pas un site : vous ne possédez pas vos abonnés, l'algorithme peut réduire votre portée du jour au lendemain, et une suppression de compte efface des années de contenu. L'image de marque coiffeur ou esthéticienne solide nécessite un ancrage que vous contrôlez. Les deux outils sont complémentaires — Instagram amène du trafic, votre site le convertit.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Comment développer sa clientèle institut de beauté en 2026 ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">La stratégie la plus efficace en 2026 combine : un site internet propre optimisé pour le SEO local et les IA, une présence active sur Instagram ou TikTok, une fiche Google My Business complète, et une liste email que vous possédez. Ces quatre canaux se renforcent — et le site internet en est le centre de gravité. Pour aller plus loin, des ressources comme <a href="https://www.semrush.com/blog/local-seo/" rel="nofollow noopener" target="_blank">le blog SEO de Semrush</a> ou <a href="https://ahrefs.com/blog/fr/" rel="nofollow noopener" target="_blank">Ahrefs en français</a> offrent des guides pratiques sur le référencement local.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Quel est le coût d'un site internet pour un salon de beauté ou un institut ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Le coût varie fortement selon le niveau de personnalisation et les fonctionnalités (prise de rendez-vous intégrée, boutique en ligne, blog SEO…). Chez une agence spécialisée comme Gold Aura, l'investissement est calibré pour les professionnelles de la beauté — avec un rapport valeur/coût très différent d'un site généraliste. L'essentiel : considérez-le comme un investissement, pas une dépense. Un site bien construit peut se rentabiliser en quelques mois si une seule nouvelle cliente premium est acquise grâce à lui chaque semaine.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Quels partenaires peuvent m'aider à construire mon image de marque localement ?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">Les partenariats les plus efficaces dans l'univers de la beauté incluent les photographes professionnels, les boutiques de mode et accessoires, les studios de yoga et pilates, et les revendeurs de cosmétiques naturels. Pour les échanges de liens web, visez des partenaires dont l'audience est proche de la vôtre mais dont l'offre est complémentaire — par exemple un spa proposant des soins corps si vous êtes spécialisée en soins visage, ou une boutique de cosmétiques bio si vous utilisez des produits naturels dans vos soins.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT GOLD AURA -->
+  <section class="about-section" id="gold-aura">
+    <div class="logo-badge">
+      <span>✦ Gold Aura</span>
+    </div>
+    <h2>En savoir plus sur Gold Aura</h2>
+    <p>Gold Aura est une agence de création de sites web spécialisée dans les instituts de beauté, salons de coiffure et professionnelles de l'esthétique. Basée à Genève, nous accompagnons les professionnelles de la beauté qui souhaitent construire une présence en ligne à la hauteur de leur talent — avec un site qui leur ressemble, qui convertit et qui dure. Notre méthode associe design premium, stratégie de contenu et optimisation SEO dès le départ, pour que votre site soit à la fois beau et efficace.</p>
+    <p>Nous travaillons régulièrement en collaboration avec des acteurs complémentaires de l'univers beauté : studios de photographie professionnelle, rédactrices web spécialisées beauté, et consultantes en stratégie digitale. Notre réseau de partenaires vous permet d'avoir accès à toutes les ressources nécessaires pour construire une marque forte, cohérente et durable.</p>
+    <div class="about-placeholder">
+      [ Espace personnalisable — Ajoutez ici votre présentation, vos offres, un lien vers votre portfolio, vos coordonnées ou un bouton de contact. ]
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

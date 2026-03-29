@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Création Beauté — Institut d'Excellence · Genève</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FAFAF8;
+    --black: #0A0A0A;
+    --rose: #C4788A;
+    --rose-light: #E8C5CE;
+    --rose-pale: #F5EAED;
+    --gold: #B8956A;
+    --grey-soft: #F0EDE8;
+    --grey-mid: #9E9E9E;
+    --grey-dark: #3A3A3A;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--rose);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--rose);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.6;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+  .reveal-delay-4 { transition-delay: 0.6s; }
+
+  /* ============ NAVBAR ============ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 60px;
+    height: 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,120,138,0.12);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    height: 64px;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--rose); }
+  .nav-links {
+    display: flex; gap: 44px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--rose);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    border: none;
+    padding: 12px 28px;
+    cursor: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .nav-cta:hover {
+    background: var(--rose);
+    transform: translateY(-1px);
+  }
+
+  /* ============ HERO ============ */
+  #hero {
+    min-height: 100vh;
+    padding: 80px 60px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .hero-bg-text {
+    position: absolute;
+    bottom: -20px; right: -40px;
+    font-family: var(--font-display);
+    font-size: clamp(120px, 18vw, 260px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(196,120,138,0.07);
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+  .hero-label::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--rose);
+  }
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5.5vw, 82px);
+    font-weight: 400;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s 0.4s forwards;
+  }
+  .hero-headline em { font-style: italic; color: var(--rose); }
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey-dark);
+    max-width: 440px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+  }
+  .hero-actions {
+    display: flex; align-items: center; gap: 32px;
+    opacity: 0;
+    animation: fadeUp 1s 0.8s forwards;
+  }
+  .btn-primary {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 16px 40px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--rose);
+    transform: translateX(-101%);
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+  .btn-secondary {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    transition: color 0.3s ease;
+    cursor: none;
+  }
+  .btn-secondary:hover { color: var(--rose); }
+  .btn-secondary svg { transition: transform 0.3s ease; }
+  .btn-secondary:hover svg { transform: translateX(4px); }
+
+  /* Hero Visual */
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    height: 600px;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1.4s 0.5s forwards;
+  }
+  .orb-container {
+    position: relative;
+    width: 420px; height: 420px;
+  }
+  .orb-ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(196,120,138,0.15);
+    animation: slowSpin 20s linear infinite;
+  }
+  .orb-ring:nth-child(2) {
+    inset: 30px;
+    border-color: rgba(196,120,138,0.1);
+    animation-direction: reverse;
+    animation-duration: 30s;
+  }
+  .orb-ring:nth-child(3) {
+    inset: 60px;
+    border-color: rgba(196,120,138,0.07);
+    animation-duration: 40s;
+  }
+  .orb-center {
+    position: absolute;
+    inset: 90px;
+    border-radius: 50%;
+    background: radial-gradient(135deg, var(--rose-pale) 0%, var(--grey-soft) 50%, var(--rose-pale) 100%);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow:
+      0 0 80px rgba(196,120,138,0.15),
+      inset 0 0 40px rgba(255,255,255,0.5);
+    animation: breathe 6s ease-in-out infinite;
+  }
+  .orb-inner-text {
+    text-align: center;
+    padding: 30px;
+  }
+  .orb-inner-text .num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 400;
+    color: var(--rose);
+    line-height: 1;
+    display: block;
+  }
+  .orb-inner-text .lbl {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    display: block;
+    margin-top: 6px;
+  }
+  .floating-card {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 16px 22px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  }
+  .floating-card .card-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: block; margin-bottom: 4px;
+  }
+  .floating-card .card-value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .card-1 { top: 60px; left: -30px; animation: float1 7s ease-in-out infinite; }
+  .card-2 { bottom: 80px; right: -40px; animation: float2 8s ease-in-out infinite; }
+
+  /* Hero Info Strip */
+  .hero-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    opacity: 0;
+    animation: fadeUp 1s 1.2s forwards;
+  }
+  .strip-item {
+    padding: 28px 60px;
+    border-right: 1px solid rgba(0,0,0,0.07);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-item .icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(196,120,138,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--rose);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .strip-item .info { }
+  .strip-item .info strong {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    display: block;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .strip-item .info span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--grey-mid);
+  }
+
+  /* ============ PAIN / EXIGENCE ============ */
+  #pain {
+    padding: 160px 60px;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-bg-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: var(--font-display);
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .pain-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px; height: 1px;
+  }
+  .section-label.light { color: rgba(255,255,255,0.4); }
+  .section-label.light::before { background: rgba(255,255,255,0.3); }
+  .section-label.rose { color: var(--rose); }
+  .section-label.rose::before { background: var(--rose); }
+  .pain-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.5vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--white);
+    max-width: 600px;
+    margin-bottom: 80px;
+  }
+  .pain-headline em { font-style: italic; color: var(--rose); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .pain-card {
+    background: var(--black);
+    padding: 52px 44px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.4s ease;
+    cursor: default;
+  }
+  .pain-card:hover { background: #111111; }
+  .pain-card:hover .pain-card-number { color: var(--rose); }
+  .pain-card-number {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.07);
+    display: block;
+    margin-bottom: 24px;
+    transition: color 0.4s ease;
+    line-height: 1;
+  }
+  .pain-card-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .pain-card-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ============ METHODOLOGY ============ */
+  #method {
+    padding: 160px 60px;
+    background: var(--white);
+    position: relative;
+  }
+  .method-inner { max-width: 1200px; margin: 0 auto; }
+  .method-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 100px;
+  }
+  .method-headline {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--black);
+  }
+  .method-headline em { font-style: italic; color: var(--rose); }
+  .method-subtext {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--grey-dark);
+  }
+  .method-steps { display: flex; flex-direction: column; gap: 0; }
+  .method-step {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 52px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    transition: all 0.4s ease;
+  }
+  .method-step:last-child { border-bottom: none; }
+  .method-step:hover .step-num { color: var(--rose); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.06);
+    line-height: 1;
+    transition: color 0.4s ease;
+  }
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    padding-top: 8px;
+    line-height: 1.3;
+  }
+  .step-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--grey-dark);
+    padding-top: 10px;
+  }
+
+  /* ============ SERVICES ============ */
+  #services {
+    padding: 160px 60px;
+    background: var(--grey-soft);
+    position: relative;
+  }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-header {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  .services-headline {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+  .services-headline em { font-style: italic; color: var(--rose); }
+  .services-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey-dark);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 52px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--rose);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .service-card:hover { transform: translateY(-6px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 48px; height: 48px;
+    border: 1px solid rgba(196,120,138,0.3);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 32px;
+    color: var(--rose);
+  }
+  .service-icon svg { width: 22px; height: 22px; }
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .service-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--grey-dark);
+  }
+  .service-tag {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid rgba(196,120,138,0.3);
+    padding: 6px 14px;
+  }
+
+  /* ============ SERMENT / TRUST ============ */
+  #serment {
+    padding: 160px 60px;
+    background: var(--white);
+  }
+  .serment-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: center;
+  }
+  .serment-headline {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 32px;
+  }
+  .serment-headline em { font-style: italic; color: var(--rose); }
+  .serment-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--grey-dark);
+    margin-bottom: 52px;
+  }
+  .stat-row {
+    display: flex; align-items: center; gap: 40px;
+    padding: 32px 0;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .stat-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--rose);
+    line-height: 1;
+    min-width: 100px;
+  }
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--grey-dark);
+  }
+  .serment-badges {
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .badge {
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 36px 40px;
+    display: flex; gap: 24px; align-items: flex-start;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .badge:hover {
+    border-color: rgba(196,120,138,0.3);
+    box-shadow: 0 4px 30px rgba(196,120,138,0.08);
+  }
+  .badge-icon {
+    width: 44px; height: 44px;
+    background: var(--rose-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--rose);
+  }
+  .badge-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .badge-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey-dark);
+  }
+
+  /* ============ ABOUT ============ */
+  #about {
+    padding: 160px 60px;
+    background: var(--rose-pale);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-portrait {
+    position: relative;
+    aspect-ratio: 3/4;
+  }
+  .portrait-frame {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--rose-light), var(--grey-soft));
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding-bottom: 48px;
+    background: linear-gradient(to bottom, var(--rose-pale) 0%, rgba(232,197,206,0.4) 60%, rgba(196,120,138,0.2) 100%);
+  }
+  .portrait-initials {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 400;
+    color: rgba(196,120,138,0.2);
+    line-height: 1;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .portrait-name-tag {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .portrait-name-tag .name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    display: block;
+  }
+  .portrait-name-tag .title-text {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: block;
+    margin-top: 4px;
+  }
+  .portrait-accent {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 120px; height: 120px;
+    border: 1px solid rgba(196,120,138,0.3);
+  }
+  .portrait-accent-2 {
+    position: absolute;
+    top: -15px; left: -15px;
+    width: 80px; height: 80px;
+    border: 1px solid rgba(196,120,138,0.2);
+  }
+  .about-content { }
+  .about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--black);
+    margin-bottom: 32px;
+  }
+  .about-headline em { font-style: italic; color: var(--rose); }
+  .about-text {
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--grey-dark);
+    margin-bottom: 20px;
+  }
+  .credentials {
+    margin-top: 48px;
+    display: flex; gap: 40px;
+  }
+  .credential-item { }
+  .credential-item .cred-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--rose);
+    line-height: 1;
+    display: block;
+  }
+  .credential-item .cred-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ============ FAQ ============ */
+  #faq {
+    padding: 160px 60px;
+    background: var(--white);
+  }
+  .faq-inner { max-width: 900px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 80px; }
+  .faq-headline {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+  .faq-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey-dark);
+    line-height: 1.6;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+  .faq-item:first-of-type { border-top: 1px solid rgba(0,0,0,0.07); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 32px 0;
+    cursor: none;
+    user-select: none;
+  }
+  .faq-q-text {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.4;
+    padding-right: 40px;
+    transition: color 0.3s ease;
+  }
+  .faq-q:hover .faq-q-text { color: var(--rose); }
+  .faq-toggle {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(0,0,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    color: var(--black);
+  }
+  .faq-item.open .faq-toggle {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s ease;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 32px; }
+  .faq-a-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--grey-dark);
+  }
+
+  /* ============ FINAL CTA ============ */
+  #cta {
+    padding: 160px 60px;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(196,120,138,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    max-width: 900px; margin: 0 auto;
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .cta-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-bottom: 48px;
+  }
+  .cta-eyebrow::before, .cta-eyebrow::after {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--rose);
+  }
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1.07;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .cta-headline em { font-style: italic; color: var(--rose); }
+  .cta-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px; margin: 0 auto 60px;
+  }
+  .cta-buttons {
+    display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+  .btn-white {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    padding: 18px 48px;
+    text-decoration: none;
+    cursor: none;
+    display: inline-block;
+    transition: all 0.35s ease;
+  }
+  .btn-white:hover { background: var(--rose); color: var(--white); transform: translateY(-2px); }
+  .btn-outline-white {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 18px 48px;
+    text-decoration: none;
+    cursor: none;
+    display: inline-block;
+    transition: all 0.35s ease;
+  }
+  .btn-outline-white:hover { border-color: var(--rose); color: var(--rose); }
+  .hours-grid {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    gap: 8px 40px;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 36px 48px;
+  }
+  .hours-day {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .hours-time {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 48px 60px;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+  .footer-logo span { color: rgba(196,120,138,0.6); }
+  .footer-text {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.2);
+  }
+  .footer-address {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+    font-style: italic;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 80px rgba(196,120,138,0.15), inset 0 0 40px rgba(255,255,255,0.5); }
+    50% { transform: scale(1.025); box-shadow: 0 0 120px rgba(196,120,138,0.22), inset 0 0 50px rgba(255,255,255,0.6); }
+  }
+  @keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(0deg); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0px) rotate(1.5deg); }
+    50% { transform: translateY(-16px) rotate(-1deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Création <span>Beauté</span></a>
+  <ul class="nav-links">
+    <li><a href="#method">Méthode</a></li>
+    <li><a href="#services">Soins</a></li>
+    <li><a href="#about">Dina</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Réserver</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-label">Institut d'excellence · Genève Eaux-Vives</div>
+    <h1 class="hero-headline">
+      Affirmez votre<br>succès par<br><em>l'excellence</em><br>du détail.
+    </h1>
+    <p class="hero-sub">
+      Sanctuaire de haute performance esthétique à Genève. Onglerie de précision, soins Yon-Ka, et protocoles experts — pour une image à la hauteur de votre ambition.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary"><span>Réserver mon rendez-vous</span></a>
+      <a href="#method" class="btn-secondary">
+        Découvrir la méthode
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="orb-container">
+      <div class="orb-ring"></div>
+      <div class="orb-ring"></div>
+      <div class="orb-ring"></div>
+      <div class="orb-center">
+        <div class="orb-inner-text">
+          <span class="num">25</span>
+          <span class="lbl">Années<br>d'excellence</span>
+        </div>
+      </div>
+    </div>
+    <div class="floating-card card-1">
+      <span class="card-label">Certification</span>
+      <span class="card-value">Yon-Ka Expert</span>
+    </div>
+    <div class="floating-card card-2">
+      <span class="card-label">Hygiène</span>
+      <span class="card-value">Validée DGS</span>
+    </div>
+  </div>
+
+  <div class="hero-bg-text">BEAUTÉ</div>
+
+  <div class="hero-strip">
+    <div class="strip-item">
+      <div class="icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.5 12c0 2.485-2.015 4.5-4.5 4.5S8.5 14.485 8.5 12 10.515 7.5 13 7.5s4.5 2.015 4.5 4.5z"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <div class="info">
+        <strong>Onglerie Architecture</strong>
+        <span>Tenue 3–4 semaines garantie</span>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="info">
+        <strong>Soins Yon-Ka</strong>
+        <span>Phyto-aromatique haute performance</span>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <div class="info">
+        <strong>Passage Linck, 1207 Genève</strong>
+        <span>Face à la Poste du 31 Décembre</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="pain-bg-text">EXIGENCE</div>
+  <div class="pain-inner">
+    <div class="section-label light reveal">L'exigence du succès</div>
+    <h2 class="pain-headline reveal reveal-delay-1">
+      Votre image<br>parle <em>avant vous.</em>
+    </h2>
+    <div class="pain-grid">
+      <div class="pain-card reveal reveal-delay-1">
+        <span class="pain-card-number">01</span>
+        <div class="pain-card-title">Le risque de l'image inadaptée</div>
+        <p class="pain-card-text">À Genève, la première impression se forge en quelques secondes. Des mains ou un visage fatigués créent un décalage entre votre ambition et la perception que les autres ont de vous.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <span class="pain-card-number">02</span>
+        <div class="pain-card-title">La fragilité du quotidien</div>
+        <p class="pain-card-text">Un vernis qui s'écaille ou une peau qui manque d'éclat sont des obstacles à votre assurance. Vous méritez une tenue irréprochable qui résiste à votre rythme de vie intense.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <span class="pain-card-number">03</span>
+        <div class="pain-card-title">Le sentiment de négligence subie</div>
+        <p class="pain-card-text">Pour s'imposer, chaque détail doit être sous contrôle. Ne laissez pas le manque de précision altérer votre stature professionnelle et sociale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="method">
+  <div class="method-inner">
+    <div class="method-header">
+      <div class="reveal">
+        <div class="section-label rose">Protocole</div>
+        <h2 class="method-headline">
+          Une <em>ingénierie</em><br>au service de<br>votre image.
+        </h2>
+      </div>
+      <p class="method-subtext reveal reveal-delay-1">
+        Nous ne traitons pas seulement l'apparence — nous optimisons votre capital beauté. Chaque protocole est conçu où la haute technicité rencontre le résultat durable.
+      </p>
+    </div>
+    <div class="method-steps">
+      <div class="method-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">L'Ingénierie<br>de la Tenue</div>
+        <p class="step-body">Nous bâtissons une architecture de l'ongle d'une finesse absolue et d'une résistance extrême. La garantie d'une main impeccable — signature de votre professionnalisme au quotidien.</p>
+      </div>
+      <div class="method-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">La Synergie<br>Phyto-Active</div>
+        <p class="step-body">À travers l'expertise Yon-Ka, nous relançons l'énergie de votre peau. Une cure de vitalité qui efface les signes de fatigue pour restaurer votre éclat naturel et refléter votre succès.</p>
+      </div>
+      <div class="method-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">La Précision<br>du Geste</div>
+        <p class="step-body">De l'épilation haute performance aux massages esthétiques, chaque mouvement est exécuté avec une rigueur millimétrée. L'excellence du détail, sans aucun compromis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="section-label rose" style="justify-content:center;">L'architecture des prestations · Eaux-Vives</div>
+      <h2 class="services-headline">L'excellence technique au service<br>de votre <em>image.</em></h2>
+      <p class="services-sub">Des protocoles de pointe, conçus pour celles et ceux qui exigent des résultats visibles et une précision absolue.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 11.5V14m0-2.5V9M7 14v2.5M17 9v2.5M17 11.5V14m0 0v2.5M12 7v10M9.5 7h5M9.5 17h5"/></svg>
+        </div>
+        <div class="service-title">Onglerie Architecture</div>
+        <p class="service-text">Pose gel, semi-permanent, sculpture — bâtie sur des fondations techniques irréprochables. Tenue garantie 3 à 4 semaines, sans aucun décollement.</p>
+        <span class="service-tag">Signature Création Beauté</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <div class="service-title">Soins Visage Yon-Ka</div>
+        <p class="service-text">Protocoles haute phyto-aromatique. Technologies UNA & DERMA. Résultats visibles dès la première séance pour un éclat qui reflète votre vitalité.</p>
+        <span class="service-tag">Expert Yon-Ka Certifié</span>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4.5 12.75l7.5-7.5 7.5 7.5M4.5 19.5l7.5-7.5 7.5 7.5"/></svg>
+        </div>
+        <div class="service-title">Épilation Haute Performance</div>
+        <p class="service-text">Épilation électrique et techniques d'élite. Précision millimétrée pour un résultat durable. Le geste parfait, exécuté avec une rigueur absolue.</p>
+        <span class="service-tag">Technique d'élite</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3M6.343 6.343l-.707-.707M17 17l-5-5-5 5"/></svg>
+        </div>
+        <div class="service-title">Massages Esthétiques</div>
+        <p class="service-text">Du massage empirique aux soins corps intégraux — des rituels pensés pour régénérer votre corps et recharger votre énergie, avec une technique maîtrisée depuis 25 ans.</p>
+        <span class="service-tag">Bien-être & Performance</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div class="service-title">Soins Corps & Silhouette</div>
+        <p class="service-text">Technologies corps de pointe pour sculpter, raffermir et revitaliser. Des résultats mesurables, pour un corps qui reflète votre ambition.</p>
+        <span class="service-tag">Technologies UNA</span>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="service-title">Protocole Sur Mesure</div>
+        <p class="service-text">Consultation personnalisée pour définir le protocole idéal selon votre profil, votre rythme de vie, et vos objectifs d'image. L'excellence commence par l'écoute.</p>
+        <span class="service-tag">Expérience Premium</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERMENT -->
+<section id="serment">
+  <div class="serment-inner">
+    <div>
+      <div class="section-label rose reveal">Le serment</div>
+      <h2 class="serment-headline reveal reveal-delay-1">
+        Votre confiance est<br>notre plus bel <em>accomplissement.</em>
+      </h2>
+      <p class="serment-text reveal reveal-delay-2">
+        À l'Institut Création Beauté, nous ne prodigerons pas simplement des soins. Nous scellons un accord avec vous : celui de la précision absolue et de la tenue irréprochable.
+      </p>
+      <div class="stat-row reveal reveal-delay-2">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Années de maîtrise des technologies esthétiques pour un résultat qui soutient votre ambition.</div>
+      </div>
+      <div class="stat-row reveal reveal-delay-3">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Protocole d'hygiène strict, validé par la Direction Générale de la Santé de Genève.</div>
+      </div>
+    </div>
+    <div class="serment-badges">
+      <div class="badge reveal reveal-delay-1">
+        <div class="badge-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+        <div>
+          <div class="badge-title">La Rigueur Sanitaire</div>
+          <p class="badge-text">Un protocole d'hygiène strict, validé par la Direction Générale de la Santé de Genève, pour votre sécurité totale. Chaque outil, stérilisé. Chaque geste, contrôlé.</p>
+        </div>
+      </div>
+      <div class="badge reveal reveal-delay-2">
+        <div class="badge-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div>
+          <div class="badge-title">La Garantie de Performance</div>
+          <p class="badge-text">L'utilisation exclusive de technologies de pointe (UNA, DERMA) et de la haute phyto-aromatique Yon-Ka. Des résultats qui soutiennent votre image au quotidien.</p>
+        </div>
+      </div>
+      <div class="badge reveal reveal-delay-3">
+        <div class="badge-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4.5 12.75l7.5-7.5 7.5 7.5M4.5 19.5l7.5-7.5 7.5 7.5"/></svg>
+        </div>
+        <div>
+          <div class="badge-title">Membre FREC</div>
+          <p class="badge-text">Diplômée de l'École Christiane Bordeaux et membre de la FREC. Une expertise ancrée dans les standards d'excellence reconnus par la profession.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-portrait reveal">
+      <div class="portrait-frame">
+        <div class="portrait-placeholder">
+          <div class="portrait-initials">DS</div>
+          <div class="portrait-name-tag">
+            <span class="name">Dina Silva</span>
+            <span class="title-text">Fondatrice · Esthéticienne Diplômée</span>
+          </div>
+        </div>
+      </div>
+      <div class="portrait-accent"></div>
+      <div class="portrait-accent-2"></div>
+    </div>
+    <div class="about-content">
+      <div class="section-label rose reveal">À propos</div>
+      <h2 class="about-headline reveal reveal-delay-1">
+        Dina : 25 ans d'excellence<br>au service de votre <em>rayonnement.</em>
+      </h2>
+      <p class="about-text reveal reveal-delay-2">
+        Ma vision de la beauté est née au Brésil, une nation où l'esthétisme est un art de vivre. Depuis mon arrivée en Suisse il y a 15 ans, j'ai fusionné cette intuition naturelle avec la rigueur genevoise.
+      </p>
+      <p class="about-text reveal reveal-delay-2">
+        Diplômée de la prestigieuse École Christiane Bordeaux en 2001 et membre de la FREC, j'ai bâti mon expertise sur un socle de formations d'élite — de l'esthétique classique à la haute technicité de l'épilation électrique et du massage empirique.
+      </p>
+      <p class="about-text reveal reveal-delay-3">
+        En 2007, j'ai fondé Création Beauté Sàrl avec une mission claire : offrir à ma clientèle des Eaux-Vives un sanctuaire où la performance technique rencontre l'écoute profonde. Je n'architecture pas seulement votre apparence — j'architecture votre image pour qu'elle reflète votre succès.
+      </p>
+      <div class="credentials reveal reveal-delay-3">
+        <div class="credential-item">
+          <span class="cred-num">2001</span>
+          <span class="cred-label">Diplômée<br>Chr. Bordeaux</span>
+        </div>
+        <div class="credential-item">
+          <span class="cred-num">2007</span>
+          <span class="cred-label">Fondatrice<br>Création Beauté</span>
+        </div>
+        <div class="credential-item">
+          <span class="cred-num">FREC</span>
+          <span class="cred-label">Membre<br>Certifiée</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-label rose" style="justify-content:center;">Transparence</div>
+      <h2 class="faq-headline">Vos questions,<br>notre exigence de clarté.</h2>
+      <p class="faq-sub">Des réponses précises, sans compromis.</p>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Pourquoi votre architecture de l'ongle est-elle différente d'une pose classique ?</span>
+        <div class="faq-toggle">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <p class="faq-a-text">Chez nous, l'onglerie n'est pas qu'une question de couleur. Nous bâtissons une véritable architecture de l'ongle qui respecte votre plaque naturelle tout en garantissant une résistance extrême. Cette technique de précision vous assure une tenue impeccable de 3 à 4 semaines, sans aucun décollement — pour une image de succès qui dure, même avec un rythme de vie intense à Genève.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Quels résultats attendre de vos technologies silhouette et épilation ?</span>
+        <div class="faq-toggle">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <p class="faq-a-text">Nos technologies corps (UNA, DERMA) et nos protocoles d'épilation haute performance sont conçus pour des résultats visibles et durables. Dès les premières séances, vous observez un raffinement de la texture cutanée, une réduction progressive des repousses, et un galbe silhouette optimisé. Chaque protocole est personnalisé selon votre morphologie et vos objectifs spécifiques.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-2">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Comment votre expertise Yon-Ka garantit-elle un résultat visible sur mon visage ?</span>
+        <div class="faq-toggle">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <p class="faq-a-text">La haute phyto-aromatique Yon-Ka repose sur des complexes d'huiles essentielles actives qui pénètrent en profondeur pour relancer l'énergie cellulaire. En tant qu'experte certifiée, je sélectionne les protocoles en fonction de votre bilan peau personnalisé. L'éclat est visible dès la première séance, et la qualité de peau s'améliore durablement sur le moyen terme.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-3">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Comment se déroule ma première consultation à Création Beauté ?</span>
+        <div class="faq-toggle">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <p class="faq-a-text">Chaque nouvelle cliente bénéficie d'un échange privilégié de 15 minutes pour définir les contours de votre signature beauté. Je prends le temps de comprendre votre style de vie, vos objectifs d'image, et vos contraintes de temps. Ce diagnostic personnalisé est la base de tous nos protocoles — l'excellence commence par l'écoute.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow reveal">Votre métamorphose commence maintenant</div>
+    <h2 class="cta-headline reveal reveal-delay-1">
+      L'excellence<br>n'<em>attend pas.</em>
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">
+      Réservez votre consultation privilégiée et découvrez le protocole conçu pour votre signature beauté.
+    </p>
+    <div class="cta-buttons reveal reveal-delay-2">
+      <a href="mailto:contact@creationbeaute.ch" class="btn-white">Réserver mon rendez-vous</a>
+      <a href="tel:+41000000000" class="btn-outline-white">Nous appeler</a>
+    </div>
+    <div class="hours-grid reveal reveal-delay-3">
+      <span class="hours-day">Lundi</span>
+      <span class="hours-time">15h00 – 20h00</span>
+      <span class="hours-day">Mardi – Vendredi</span>
+      <span class="hours-time">10h00 – 20h00</span>
+      <span class="hours-day">Samedi</span>
+      <span class="hours-time">10h00 – 18h00 · un samedi sur deux</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Création <span>Beauté</span></a>
+  <span class="footer-text">© 2025 Création Beauté Sàrl · Genève</span>
+  <div class="footer-address">
+    Passage Linck<br>
+    1207 Genève, Suisse
+  </div>
+</footer>
+
+<script>
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on links
+  document.querySelectorAll('a, button, .faq-q, .service-card, .pain-card, .badge').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+      ring.style.opacity = '0.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.opacity = '0.6';
+    });
+  });
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
